@@ -15,7 +15,7 @@ export class Calculator extends Component {
     } else if (input === "=") {
       try {
         const result = eval(expression);
-        this.setState({ expression: result });
+        this.setState({ expression: String(result) });
       } catch {
         alert("输入错误！");
       }
@@ -37,8 +37,8 @@ export class Calculator extends Component {
   calculatorRender() {
     const { onButtonClick } = this;
     let { expression } = this.state;
-    // TODO: bug
-    // expression = expression.replaceAll("*", "×");
+
+    expression = expression.replaceAll("*", "×");
 
     return (
       <div className="calculator" onClick={onButtonClick}>
