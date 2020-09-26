@@ -9,6 +9,8 @@ export class Timer extends Component {
     status: Timer.STATUS.START,
   };
 
+  timer = null;
+
   get timeSetting() {
     const { time } = this.state;
 
@@ -52,19 +54,21 @@ export class Timer extends Component {
     this.setStatus(Timer.STATUS.RUNNING);
     this.setRemainSeconds(timeSetting);
 
-    let timer;
-
-    timer = setInterval(() => {
+    this.timer = setInterval(() => {
       let { remainSeconds } = this.state;
 
       if (--remainSeconds <= 0) {
-        clearInterval(timer);
+        clearInterval(this.timer);
         this.setStatus(Timer.STATUS.END);
         return;
       }
 
       this.setRemainSeconds(remainSeconds);
     }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   screenRender() {
