@@ -29,11 +29,13 @@ class App extends Component {
       <div className="app">
         <BrowserRouter>
           <Header navList={navList} />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/timer" component={Timer} />
-            <Route exact path="/calculator" component={Calculator} />
-          </Switch>
+          <main>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/timer" component={Timer} />
+              <Route exact path="/calculator" component={Calculator} />
+            </Switch>
+          </main>
         </BrowserRouter>
       </div>
     );
