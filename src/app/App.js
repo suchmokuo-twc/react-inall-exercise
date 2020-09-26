@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.less";
 import { Route, BrowserRouter } from "react-router-dom";
-import Home from "./Home";
+import { Home } from "./Home";
 import { Timer } from "./Timer";
 import { Calculator } from "./Calculator";
 
